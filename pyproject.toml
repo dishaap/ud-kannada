@@ -1,0 +1,23 @@
+[built-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "udkn"
+version = "0.1.0"
+description = "Tooling for building a Universal Dependencies treebank for Kannada"
+requires-python = ">=3.9"
+dependencies = ["mwparserfromhell>=0.6", "regex", "udapi"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+udkn = "udkn.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
