@@ -13,7 +13,7 @@ def main(argv=None) -> int:
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     s = sub.add_parser("wiki-download", help="download the Kannada Wikipedia dump")
-    s.add_argument("--dest", default="data/raw/knwiki-lates-pages-articles.xml.bz2")
+    s.add_argument("--dest", default="data/raw/knwiki-latest-pages-articles.xml.bz2")
 
     s = sub.add_parser("build-pool", help="dump -> filtered sentence pool (jsonl)")
     s.add_argument("dump"); s.add_argument("--out", default="data/pool/knwiki_pool.jsonl")
