@@ -16,7 +16,7 @@ pytest                                                 # 15 tests, no network ne
 ## Workflow
 ```bash
 # 1. Get Kannada Wikipedia (~ a few hundred MB) and build a clean sentence pool
-udkn wiki-download
+udkn wiki-download   # if this fails try: curl.exe -L -C - -o data\raw\knwiki-latest-pages-articles.xml.bz2 https://dumps.wikimedia.org/knwiki/latest/knwiki-latest-pages-articles.xml.bz2
 udkn build-pool data/raw/knwiki-latest-pages-articles.xml.bz2 --out data/pool/knwiki_pool.jsonl
 #    FIRST RUN: add --limit-pages 2000 and READ the pool by eye (see "Check the pool" below)
 
