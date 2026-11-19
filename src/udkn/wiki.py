@@ -59,7 +59,7 @@ def iter_pages(path: str | Path) -> Iterator[Page]:
                 elif t == "id":
                     pid = ch.text
                 elif t == "redirect":
-                    redirect == True
+                    redirect = True
                 elif t == "revision":
                     for r in ch:
                         if _local(r.tag) == "id":
@@ -74,7 +74,7 @@ def iter_pages(path: str | Path) -> Iterator[Page]:
 def clean_wikitext(raw: str) -> list[str]:
     """Wikitext -> list of prose lines (one per paragraph). Lists, tables, headings, templates are dropped."""
     t = re.sub(r"<!--.*?-->", "", raw, flags=re.S)
-    t = re.sub(r"<ref[^>/]*/>|<ref[^>]*>.*?</ref>," "", t, flags=re.S | re.I)
+    t = re.sub(r"<ref[^>/]*/>|<ref[^>]*>.*?</ref>", "", t, flags=re.S | re.I)
     t = re.sub(r"\{\|.*?\|\}", "", t, flags=re.S)
     code = mwparserfromhell.parse(t)
     for tpl in code.filter_templates(recursive=False):

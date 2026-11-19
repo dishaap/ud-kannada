@@ -6,7 +6,7 @@ tokenize.py does not split Kannada clitics or sandhi; human annotator decides th
 """
 from __future__ import annotations
 
-from text import is_abbrev
+from .text import is_abbrev
 
 OPEN = set("\"“‘'([{«")
 CLOSE = set(".,;:!?\"”’')]}»…")
@@ -33,7 +33,7 @@ def tokenize(sentence: str) -> list[tuple[str, bool]]:
         trail.reverse()
         merged: list[str] = []
         for t in trail: # "..." -> one token 
-            if t == "." and merged and set(merged[-1]) == ("."):
+            if t == "." and merged and set(merged[-1]) == {"."}:
                 merged[-1] += "."
             else:
                 merged.append(t)
