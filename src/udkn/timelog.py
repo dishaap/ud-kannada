@@ -44,4 +44,4 @@ def summary(path: str | Path, budget_hours: float = 300, annotation_share: float
         left  = max(budget_hours - tot_m / 60, 0) * annotation_share
         out.append(f"correction speed {rate:.1f} sents/h -> ~{rate * left:.0f} more sentences "
                    f"if {annotation_share:.0%} of the remaining hours go to correction")
-    return "n".join(out)
+    return "\n".join(out)
